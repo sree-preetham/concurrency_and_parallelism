@@ -19,16 +19,6 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
-  app:
-    build: ./threads
-    depends_on:
-      - postgres
-    environment:
-      DB_HOST: db
-      DB_NAME: bank
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-
 volumes:
   pgdata:
     
