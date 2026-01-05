@@ -1,6 +1,6 @@
 # Concurrency & Parallelism
 
-This repository demonstrates a **classic race condition** in multithreaded programs: the **Lost Update problem**, using Python threads and a PostgreSQL database.
+This repository demonstrates in understanding concurrency in real world situations
 
 The setup intentionally uses:
 - **Docker only for the database + Adminer UI**
