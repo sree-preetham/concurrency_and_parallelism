@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: database
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bank
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    container_name: adminer_ui
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+  app:
+    build: ./threads
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: db
+      DB_NAME: bank
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
+volumes:
+  pgdata:
+    
+
